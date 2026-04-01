@@ -3,7 +3,7 @@ declare module "gsap-trial/SplitText" {
     chars: HTMLElement[];
     words: HTMLElement[];
     lines: HTMLElement[];
-    constructor(target: string | Element | Element[], vars?: Record<string, unknown>);
+    constructor(target: string | string[] | Element | Element[], vars?: Record<string, unknown>);
     split(vars?: Record<string, unknown>): void;
     revert(): void;
   }
@@ -13,7 +13,9 @@ declare module "gsap-trial/ScrollSmoother" {
   export class ScrollSmoother {
     static create(vars?: Record<string, unknown>): ScrollSmoother;
     static get(): ScrollSmoother | undefined;
-    scrollTo(target: string | Element | number, smooth?: boolean, position?: string): void;
+    static refresh(hard?: boolean): void;
+    scrollTo(target: string | Element | number | null, smooth?: boolean, position?: string): void;
+    scrollTop(value?: number): number;
     paused(value?: boolean): boolean;
     kill(): void;
   }
